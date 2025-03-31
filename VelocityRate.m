@@ -20,7 +20,7 @@ para.td = 0.05; %sample time 20ms
 %%
 methods = [...
     1 ... %LS based BF
-    0 ... %far field based BF
+    0 ... %
     1 ... %Perfect CSI based BF
     1 ... % LLM
     1 ... % BFNN
@@ -28,7 +28,7 @@ methods = [...
     ];
 methodName=strvcat( ...
     'LS based BF', ...
-    'far field based BF', ...
+    '', ...
     'Perfect CSI based BF', ...
     'BP-GPT' , ...
     'BFNN' , ...
@@ -77,16 +77,7 @@ for vv = 1:Vlen
             end
         end
         if methods(2) == 1
-            delta_angle = 128;
-            t = (-(delta_angle-1)/2:1:(delta_angle/2))*(2/delta_angle);
-            g = 0:para.N-1;
-            A = exp(-1j * pi * g' * t);
-            y = abs(channelH' * A);
-            [value,pos] = max(y.');
-            at = A(:,pos(nn));
-            y_far = channelH(:,nn)' *at;
-            far_field_rate_gain = norm(y_far)^2;
-            Rate(vec,2) = Rate(vec,2) + log2(1+far_field_rate_gain/SigmaN);
+            
 
         end
 
