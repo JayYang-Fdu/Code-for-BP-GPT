@@ -1,4 +1,4 @@
-# 📁 GPT-2 Model Implementation
+# 📁 BP-GPT Implementation
 
 ## ⚠️ File Notes
 - The `GP2model` folder exceeds GitHub's size limit and cannot be uploaded directly.  
