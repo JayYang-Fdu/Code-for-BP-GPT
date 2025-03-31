@@ -1,10 +1,32 @@
-The GP2model folder is too large to upload and lacks a .bin file (pytorch_model.bin), which can be downloaded in https://huggingface.co/openai-community/gpt2/blob/main. 
+# 📁 GPT-2 Model Implementation
 
-Requires: python3.8, torch2.4.1 cu121 \\
-Running main_hybrid.m generate the train set and test data set. \\
-Runing LLM4BF.py train the BP-GPT model. \\
-Runing test.py test the prediced beam. \\
+## ⚠️ File Notes
+- The `GP2model` folder exceeds GitHub's size limit and cannot be uploaded directly.  
+- Missing `.bin` file (`pytorch_model.bin`) can be downloaded from:  
+  [Hugging Face GPT-2 Model](https://huggingface.co/openai-community/gpt2/blob/main)
 
-TindexRate.m generates the SE versus. time steps. \\
-Velocity.m generates the SE versus. different Velocities.\\
-PNRRate.m generates the average SE performance with different test SNRs.
+## 🛠️ Requirements
+- Python 3.8
+- PyTorch 2.4.1 (CUDA 12.1)
+
+## 🚀 Workflow
+### 1. Data Generation
+Run `main_hybrid.m` to generate:  
+- Training dataset  
+- Test dataset  
+
+### 2. Model Training
+Execute `LLM4BF.py` to train the BP-GPT model.
+
+### 3. Model Testing
+Run `test.py` to evaluate predicted beam performance.
+
+## 📊 Performance Analysis
+### Temporal Performance
+- `TindexRate.m`: Generates Spectral Efficiency (SE) vs. time steps.
+
+### Velocity Impact
+- `Velocity.m`: Plots SE vs. different velocities.
+
+### Noise Robustness
+- `PNRRate.m`: Calculates average SE across different test SNRs.
