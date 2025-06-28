@@ -67,7 +67,7 @@ for vv = 1:Vlen
             if methods(1) == 1
                 noise = (randn(size(channelH))+1j*randn(size(channelH)))/sqrt(2)*sqrt(db2pow(alpha));
                 channelHLs = channelH+noise;
-                channelHLsBf = sqrt(para.N)*channelHLs/ norm(channelHLs);
+                channelHLsBf = channelHLs(:,nn)./ abs(channelHLs(:,nn));
                 LS_gain = abs(channelH'*channelHLsBf)^2;
                 Rate(nn,1) = Rate(nn,1) + log2(1+LS_gain/SigmaN);
             end
