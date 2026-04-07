@@ -24,7 +24,7 @@ def pred(method):
                               solver_type="fixed_euler")
         # Load the trained model weights
         # model.load_state_dict(torch.load('./saved_models/20dB.pth'))
-        model.load_state_dict(torch.load('saved_models/'+str(PNR)+'dB_ODELSTM.pth'))
+        model.load_state_dict(torch.load('saved_models/ODELSTM.pth'))
         # Set the model to evaluation mode
         model.eval()
         with torch.no_grad():
@@ -53,7 +53,7 @@ def pred(method):
         # H_input1 = np.concatenate([np.real(H_est1), np.imag(H_est1)], axis=2)
         H1 = np.squeeze(H1)
         model = MyModel(H_input1, Nt)
-        model.load_state_dict(torch.load('saved_models/'+str(PNR)+'dB_'+method+'.pth'), False)
+        model.load_state_dict(torch.load('saved_models/BFNN.pth'), False)
         model.eval()
         with torch.no_grad():
             for snr in range(20, 21, 2):
@@ -67,7 +67,7 @@ def pred(method):
         model = MyGPT2Model()
         # Load the trained model weights
         # model.load_state_dict(torch.load('./saved_models/20dB.pth'))
-        model.load_state_dict(torch.load('saved_models/' + str(PNR) + 'dB_LLM_MLP1.pth'))
+        model.load_state_dict(torch.load('saved_models/final_LLM.pth')) # final_distLLM.pth
         model.eval()
         rate = []
         pathTest = 'train_set/test/'+str(PNR)+'dB'
